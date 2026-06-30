@@ -1,9 +1,9 @@
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
-  name: websites.demo
+  name: websites.demo.com
 spec:
-  group: demo
+  group: demo.com
   scope: Namespaced
   names:
     plural: websites
@@ -18,12 +18,15 @@ spec:
         openAPIV3Schema:
           type: object
           properties:
-            image:
-              type: string
-              replicas:
-                type: integer
-                default: 1
-            required: true
+            spec:
+              type: object
+              properties:
+                image:
+                  type: string
+                replicas:
+                  type: integer
+                  default: 1
+              required: [image]
       additionalPrinterColumns:
         - name: Image
           type: string
