@@ -1,0 +1,7 @@
+apiVersion: demo.com/v1
+kind: Website
+metadata:
+  name: hello
+spec:
+  image: nginx:1.27
+  replicas: 2
